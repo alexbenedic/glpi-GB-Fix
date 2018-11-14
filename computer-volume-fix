@@ -1,0 +1,38 @@
+search for "Mio" in inc/computer.class.php and replace to auto 
+
+
+example: 
+
+
+ $tab[] = [
+         'id'                 => '34',
+         'table'              => 'glpi_items_deviceharddrives',
+         'field'              => 'capacity',
+         'name'               => __('Hard drive size'),
+         'unit'               => 'Mio',------------------------------------------<<<<<<<< this
+         'forcegroupby'       => true,
+         'usehaving'          => true,
+         'datatype'           => 'number',
+         'width'              => 1000,
+         'massiveaction'      => false,
+         'joinparams'         => $items_device_joinparams,
+         'computation'        => '(SUM(TABLE.`capacity`) / COUNT(TABLE.`id`))
+                                       * COUNT(DISTINCT TABLE.`id`)'
+                                       
+                                       to
+                                       
+                                       
+                                        $tab[] = [
+         'id'                 => '34',
+         'table'              => 'glpi_items_deviceharddrives',
+         'field'              => 'capacity',
+         'name'               => __('Hard drive size'),
+         'unit'               => 'auto',------------------------------------------<<<<<<<< to this
+         'forcegroupby'       => true,
+         'usehaving'          => true,
+         'datatype'           => 'number',
+         'width'              => 1000,
+         'massiveaction'      => false,
+         'joinparams'         => $items_device_joinparams,
+         'computation'        => '(SUM(TABLE.`capacity`) / COUNT(TABLE.`id`))
+                                       * COUNT(DISTINCT TABLE.`id`)'
